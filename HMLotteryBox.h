@@ -98,7 +98,6 @@ public:
 	// Return:		None.
 	void Dump() const
 	{
-		std::cout << "CHMLotteryBoxVersion " << m_cszCHMLotteryBoxVersion << std::endl;
 		std::cout << "Current total lottery count " << m_nCurrentLotteryCount << "." << std::endl;
 		std::cout << "Lottery box capacity " << m_scnLotteryBoxCapacity << std::endl;
 
@@ -110,11 +109,16 @@ public:
 		}
 	}
 
+	//////////////////////////////////////////////////////////////////////////////////////
+	// Describe:	Get the version of CHMLotteryBox.
+	// Return:		A unsigned int stands for the version.
+	unsigned int Version() const { return m_scunCHMLotteryBoxVersion; }
+
 private:
 	int m_nCurrentLotteryCount;
 	std::list<std::pair<T1, int>> m_listLotteryPool;
 	static const int m_scnLotteryBoxCapacity = INT_MAX;
-	static const char m_cszCHMLotteryBoxVersion[];
+	static const unsigned int m_scunCHMLotteryBoxVersion = 1;
 
 	bool ModifyLotteryPool(const T1& t1Lottery, const int nCount)
 	{
@@ -163,6 +167,3 @@ private:
 		return false;
 	}
 };
-
-template <typename T1>
-const char CHMLotteryBox<T1>::m_cszCHMLotteryBoxVersion[] = "1.0.0.0";
