@@ -94,6 +94,14 @@ public:
 	}
 
 	//////////////////////////////////////////////////////////////////////////////////////
+	// Describe:	Get the lotteries pool.
+	// Return:		The lotteries pool.
+	const auto& GetPool() const
+	{
+		return m_listLotteryPool;
+	}
+
+	//////////////////////////////////////////////////////////////////////////////////////
 	// Describe:	Dump the details of this box.
 	// Return:		None.
 	void Dump() const
@@ -118,7 +126,7 @@ private:
 	int m_nCurrentLotteryCount;
 	std::list<std::pair<T1, int>> m_listLotteryPool;
 	static const int m_scnLotteryBoxCapacity = INT_MAX;
-	static const unsigned int m_scunCHMLotteryBoxVersion = 1;
+	static const unsigned int m_scunCHMLotteryBoxVersion = 2;
 
 	bool ModifyLotteryPool(const T1& t1Lottery, const int nCount)
 	{
